@@ -41,8 +41,11 @@ export function setupDocumentPhotoHandler(bot: Telegraf) {
     if (!id) return ctx.reply('❌ Ошибка загрузки фото');
 
     const link = await ctx.telegram.getFileLink(id).then((res) => res.href);
+    console.log('link', link);
     const folder = getFolder(ctx.from.id);
+    console.log('folder', folder);
     const message = await upload({ link, folder });
+    console.log('message', message);
 
     CURRENT_STATE_MAP.set(ctx.from.id, null);
     return ctx.reply(message);
@@ -62,6 +65,8 @@ function getFolder(id: number): BucketFoldersEnum {
 async function upload(params: { link: string; folder: BucketFoldersEnum }): Promise<string> {
   const file = await fetch(params.link).then((res) => res.arrayBuffer());
   const fileType = await fromBuffer(file);
+
+  console.log('SUCHKAAAAA: ', { file, fileType, bucketName, params });
 
   const { data, error } = await supabase.storage
     .from(bucketName)
