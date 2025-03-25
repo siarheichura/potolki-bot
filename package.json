@@ -1,0 +1,28 @@
+{
+  "name": "potolki-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "format": "prettier ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "2.49.1",
+    "dotenv": "16.4.7",
+    "file-type": "16.5.4",
+    "firebase-admin": "13.2.0",
+    "telegraf": "4.16.3",
+    "uuid": "11.1.0"
+  },
+  "devDependencies": {
+    "@telegraf/types": "8.3.1",
+    "@types/node": "22.13.11",
+    "prettier": "3.5.3",
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.8.2"
+  }
+}
